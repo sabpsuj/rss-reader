@@ -19,7 +19,7 @@ export function useFeeds() {
       try {
         setFeeds(JSON.parse(storedFeeds));
       } catch (error) {
-        console.error('Invalid JSON in localStorage');
+        console.error('Invalid JSON in localStorage', error);
       }
     }
   }, []);

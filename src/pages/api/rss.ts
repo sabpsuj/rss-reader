@@ -14,6 +14,6 @@ export default async function handler(request: NextApiRequest, response: NextApi
     const feed = await parser.parseURL(url);
     response.status(200).json(feed);
   } catch (error) {
-    response.status(500).json({ error: 'Error fetching RSS feed' });
+    response.status(500).json({ error: `Error fetching RSS feed: ${error}` });
   }
 }

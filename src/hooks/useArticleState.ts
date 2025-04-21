@@ -19,7 +19,7 @@ export function useArticleState() {
       try {
         setStates(JSON.parse(raw));
       } catch (error) {
-        console.error('Invalid article state in localStorage');
+        console.error('Invalid article state in localStorage', error);
       }
     }
   }, []);

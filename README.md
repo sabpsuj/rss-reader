@@ -4,7 +4,7 @@ Aplikacja pozwala na subskrybowanie i przeglądanie kanałów RSS w jednym miejs
 
 ## 🚀 Demo
 
-_(tu wstawimy link do Vercela po deployu)_
+[https://rss-reader.sabinapsuj.dev]
 
 ---
 

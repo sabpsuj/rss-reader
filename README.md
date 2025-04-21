@@ -13,8 +13,7 @@ Aplikacja pozwala na subskrybowanie i przeglądanie kanałów RSS w jednym miejs
 - [Next.js](https://nextjs.org/)
 - [Material UI (MUI)](https://mui.com/)
 - [rss-parser](https://github.com/rbren/rss-parser)
-- TypeScript
-- LocalStorage
+- [TypeScript](https://www.typescriptlang.org/)
 
 ---
 
@@ -22,8 +21,7 @@ Aplikacja pozwala na subskrybowanie i przeglądanie kanałów RSS w jednym miejs
 
 - ✅ Dodawanie i edytowanie kanałów RSS
 - ✅ Wyświetlanie artykułów posortowanych po dacie publikacji
-- ✅ Widok pojedynczego artykułu w modalu
-- ✅ Filtrowanie po feedzie
+- ✅ Podgląd pojedynczego artykułu w modalu
 - ✅ Wyszukiwanie po tytule
 - ✅ Oznaczanie przeczytanych i ulubionych artykułów
 - ✅ Przechowywanie feedów i stanu artykułów w LocalStorage
@@ -34,7 +32,7 @@ Aplikacja pozwala na subskrybowanie i przeglądanie kanałów RSS w jednym miejs
 ## 🧑‍💻 Jak uruchomić lokalnie
 
 ```bash
-git clone https://github.com/twoj-login/rss-reader-sabina-psuj.git
+git clone git@github.com:sabpsuj/rss-reader.git
 cd rss-reader
 npm install
 npm run dev

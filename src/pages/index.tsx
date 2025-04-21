@@ -9,6 +9,7 @@ import { type Article } from '@/types/Article';
 import ArticleModal from '@/components/articles/ArticleModal';
 import Snackbar from '@mui/material/Snackbar';
 import MuiAlert, { AlertColor } from '@mui/material/Alert';
+import Footer from '@/components/Footer';
 
 export default function Home() {
   const { feeds, addFeed, deleteFeed, updateFeed } = useFeeds();
@@ -54,53 +55,60 @@ export default function Home() {
   };
 
   return (
-    <Container sx={{ mt: 4 }}>
-      <Box sx={{ p: 2 }}>
-        <Typography variant="h4" gutterBottom>
-          Czytnik RSS
-        </Typography>
-
-        <Grid container spacing={2}>
-          <Grid size={{ xs: 12, md: 6 }}>
-            <FeedsList
-              feeds={feeds}
-              selectedFeedId={selectedFeed?.id || null}
-              onSelect={handleSelectFeed}
-              onAdd={addFeed}
-              onDelete={deleteFeed}
-              onUpdate={updateFeed}
-              onNotify={showSnackbar}
-            />
-          </Grid>
-
-          <Grid size={{ xs: 12, md: 6 }}>
-            {selectedFeed ? (
-              <ArticleList
-                articles={articles.map((a) => ({
-                  ...a,
-                  ...states[a.link],
-                }))}
-                loading={loading}
-                searchQuery={searchQuery}
-                showFavoritesOnly={showFavoritesOnly}
-                showUnreadOnly={showUnreadOnly}
-                onSearchChange={setSearchQuery}
-                onToggleFavorite={toggleFavorite}
-                onToggleRead={toggleRead}
-                onToggleFavoritesOnly={() => setShowFavoritesOnly((prev) => !prev)}
-                onToggleUnreadOnly={() => setShowUnreadOnly((prev) => !prev)}
-                onSelectArticle={setSelectedArticle}
+    <Box
+      sx={{
+        display: 'flex',
+        flexDirection: 'column',
+        minHeight: '100vh',
+      }}
+    >
+      <Box sx={{ flexGrow: 1 }}>
+        <Container maxWidth="lg" sx={{ mt: 4 }}>
+          <Typography variant="h4" gutterBottom>
+            RSS Reader
+          </Typography>
+          <Grid container>
+            <Grid size={{ xs: 12, md: 6 }}>
+              <FeedsList
+                feeds={feeds}
+                selectedFeedId={selectedFeed?.id || null}
+                onSelect={handleSelectFeed}
+                onAdd={addFeed}
+                onDelete={deleteFeed}
+                onUpdate={updateFeed}
                 onNotify={showSnackbar}
               />
-            ) : (
-              <Paper sx={{ p: 2, height: '80vh' }}>
-                <Typography variant="body1" color="text.secondary">
-                  Wybierz feed, aby zobaczyć artykuły.
-                </Typography>
-              </Paper>
-            )}
+            </Grid>
+
+            <Grid size={{ xs: 12, md: 6 }}>
+              {selectedFeed ? (
+                <ArticleList
+                  articles={articles.map((a) => ({
+                    ...a,
+                    ...states[a.link],
+                  }))}
+                  loading={loading}
+                  searchQuery={searchQuery}
+                  showFavoritesOnly={showFavoritesOnly}
+                  showUnreadOnly={showUnreadOnly}
+                  onSearchChange={setSearchQuery}
+                  onToggleFavorite={toggleFavorite}
+                  onToggleRead={toggleRead}
+                  onToggleFavoritesOnly={() => setShowFavoritesOnly((prev) => !prev)}
+                  onToggleUnreadOnly={() => setShowUnreadOnly((prev) => !prev)}
+                  onSelectArticle={setSelectedArticle}
+                  onNotify={showSnackbar}
+                />
+              ) : (
+                <Paper sx={{ p: 2, height: '80vh' }}>
+                  <Typography variant="body1" color="text.secondary">
+                    Wybierz feed, aby zobaczyć artykuły.
+                  </Typography>
+                </Paper>
+              )}
+            </Grid>
           </Grid>
-        </Grid>
+        </Container>
       </Box>
       <ArticleModal article={selectedArticle} onClose={() => setSelectedArticle(null)} />
       <Snackbar
@@ -118,6 +126,7 @@ export default function Home() {
           {snackbarMessage}
         </MuiAlert>
       </Snackbar>
-    </Container>
+      <Footer />
+    </Box>
   );
 }

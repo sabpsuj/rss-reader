@@ -5,7 +5,7 @@ import {
   Paper,
 } from '@mui/material';
 
-import FeedForm from '../FeedForm';
+import FeedForm from './FeedForm';
 import { type Feed } from '@/hooks/useFeeds';
 import FeedItem from './FeedItem';
 import { type AlertColor } from '@mui/material/Alert';

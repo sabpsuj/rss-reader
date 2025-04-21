@@ -3,8 +3,7 @@
 Aplikacja pozwala na subskrybowanie i przeglądanie kanałów RSS w jednym miejscu. Możesz dodawać własne feedy, filtrować artykuły i zarządzać ich statusem.
 
 ## 🚀 Demo
-
-[https://rss-reader.sabinapsuj.dev]
+[RSS Reader Sabina Psuj](https://rss-reader.sabinapsuj.dev)
 
 ---
 
